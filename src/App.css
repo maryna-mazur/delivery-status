@@ -1,0 +1,24 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.navbar__menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navbar__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #163951;
+}
+.navbar__item--status--is-active {
+  padding: 8px;
+  background-color: #b5d4e83b;
+  color: #5c48ee;
+}
