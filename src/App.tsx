@@ -2,10 +2,12 @@ import classNames from "classnames";
 import { FC } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { BranchesList } from "./components/BranchesList";
-import { CheckDeliveryStatus } from "./components/CheckDeliveryStatus";
+import { BranchesList } from "./components/BranchesList/BranchesList";
+import { CheckDeliveryStatus } from "./components/CheckDeliveryStatus/CheckDeliveryStatus";
 
 export const App: FC = () => {
+  console.log('App render');
+  
   return (
     <div className="app">
       <nav className="navbar">

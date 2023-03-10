@@ -1,9 +1,9 @@
 import { FC } from "react";
 
 export const BranchesList:FC = () => {
+  console.log('CheckDeliveryStatus render');
+  
   return (
-    <div>
-      <h1>Branches List</h1>
-    </div>
+    <h2>good</h2>
   );
 }
