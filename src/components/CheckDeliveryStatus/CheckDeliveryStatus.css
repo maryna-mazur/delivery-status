@@ -1,0 +1,76 @@
+.form {
+   display: flex;
+   justify-content: center;
+   gap: 30px;
+}
+
+.form__input {
+   font-family: 'Montserrat', sans-serif;
+   padding: 5px 8px;
+   font-size: 14px;
+   color: #163951;
+   background: transparent;
+   border: 0;
+   border-bottom: 1px solid #110813;
+   outline: none;
+}
+
+.form__input:focus {
+   border-bottom-color: #2874a6;
+}
+
+.form__button {
+   font-family: 'Montserrat', sans-serif;
+   padding: 5px 8px;
+   border: none;
+   border-radius: 5px;
+   transition: all 1000ms;
+   position: relative;
+   overflow: hidden;
+   background-color: transparent;
+   outline: 1px solid #163951;
+}
+
+.form__button:hover {
+   color: #ffffff;
+   transform: scale(1.07);
+   box-shadow: 4px 5px 17px -4px #D2DDF6;
+   cursor: pointer;
+}
+
+.form__button::before {
+   content: "";
+   position: absolute;
+   left: -50px;
+   top: 0;
+   width: 0;
+   height: 100%;
+   background-color: #2874a6;
+   transform: skewX(45deg);
+   z-index: -1;
+   transition: width 1000ms;
+ }
+ 
+ .form__button:hover::before {
+   width: 250%;
+ }
+
+ @media (max-width: 767px) {
+   .form {
+      flex-direction: column;
+   }
+
+   .form__input {
+      font-size: 12px;
+   }
+
+   .form__button {
+      font-size: 12px;
+      width: 180px;
+      align-self: center;
+   }
+
+   .form__button:hover {
+      transform: scale(1.05);
+   }
+ }
