@@ -15,8 +15,8 @@
   max-height: 600px;
   font-size: 18px;
   border-radius: 30px;
-  background: rgb(255, 254, 254);
-}
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);}
 
 .navbar__menu {
   margin-top: 20px;
@@ -28,24 +28,23 @@
 
 .navbar__item {
   display: flex;
-  color: #163951;
+  color: #03070a;
+  padding: 8px;
   border-bottom: 1px solid transparent;
 
 }
 .navbar__item--status--is-active {
-  text-decoration: line;
-  color: #2874a6;
-  border-bottom: 1px solid #2874a6;
+  color: #8e1441;
+  background-color: rgba(165, 165, 161, 0.104);
 }
 
 @media (max-width: 767px) {
+  .app {
+    max-height: max-content;
+  }
   .navbar__item {
     padding: 8px;
     font-size: 12px;
     border: none;
-  }
-
-  .navbar__item--status--is-active {
-    background-color: rgba(165, 165, 161, 0.104);
   }
 }
