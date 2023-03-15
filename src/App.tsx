@@ -7,7 +7,7 @@ import { CheckDeliveryStatus } from "./components/CheckDeliveryStatus/CheckDeliv
 
 export const App: FC = () => {
   console.log('App render');
-  
+
   return (
     <div className="app">
       <nav className="navbar">

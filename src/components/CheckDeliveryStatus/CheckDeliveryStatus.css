@@ -12,7 +12,7 @@
    margin-top: 50px;
 }
 
-.form__input {
+/* .form__input {
    font-family: 'Montserrat', sans-serif;
    padding: 5px 8px;
    font-size: 14px;
@@ -29,7 +29,7 @@
 
 .form__input:focus::placeholder {
    color: #8e1441;
-}
+} */
 
 .form__button {
    font-family: 'Montserrat', sans-serif;

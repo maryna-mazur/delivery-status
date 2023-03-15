@@ -1,0 +1,32 @@
+export interface Settlement {
+  Area: string;
+  AreaDescription: string;
+  AreaDescriptionRu: string;
+  AreaDescriptionTranslit: string;
+  Delivery1: string;
+  Delivery2: string;
+  Delivery3: string;
+  Delivery4: string;
+  Delivery5: string;
+  Delivery6: string;
+  Delivery7: string;
+  Description: string;
+  DescriptionRu: string;
+  DescriptionTranslit: string;
+  Index1: string;
+  Index2: string;
+  IndexCOATSU1: string;
+  Latitude: string;
+  Longitude: string;
+  Ref: string;
+  Region: string;
+  RegionsDescription: string;
+  RegionsDescriptionRu: string;
+  RegionsDescriptionTranslit: string;
+  SettlementType: string;
+  SettlementTypeDescription: string;
+  SettlementTypeDescriptionRu: string;
+  SettlementTypeDescriptionTranslit: string;
+  SpecialCashCheck: number;
+  Warehouse: string;
+}

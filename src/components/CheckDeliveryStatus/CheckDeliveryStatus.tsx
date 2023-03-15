@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { memo } from "react";
 import { DeliveryHistory } from "../DeliveryHistory";
 import { DeliveryInfo } from "../DeliveryInfo";
 import "./CheckDeliveryStatus.css";
 
-export const CheckDeliveryStatus: FC = () => {
+export const CheckDeliveryStatus = memo(() => {
   console.log("CheckDeliveryStatus render");
 
   return (
@@ -11,7 +11,7 @@ export const CheckDeliveryStatus: FC = () => {
       <form className="form">
         <input
           type="number"
-          className="form__input"
+          className="input"
           placeholder="Введіть номер ТТН"
         />
         <button className="form__button">Отримати статус ТТН</button>
@@ -22,4 +22,4 @@ export const CheckDeliveryStatus: FC = () => {
       </div>
     </>
   );
-};
+});
