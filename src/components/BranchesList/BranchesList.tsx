@@ -1,7 +1,8 @@
+import classNames from "classnames";
 import React, { useCallback, useEffect, useState } from "react";
 import { Branch } from "../../types/Branch";
 import { Settlement } from "../../types/Settlement";
-import { getSettlements, getWarehouses } from "../../utils/axios";
+import { getSettlements, getWarehouses } from "../../utils/fetchRequests";
 import { BranchesListForm } from "../BranchesListForm";
 import { Loader } from "../Loader";
 
@@ -13,6 +14,7 @@ export const BranchesList = React.memo(() => {
   const [branches, setBranches] = useState<Branch[]>([]);
   const [settlementRef, setSettlementRef] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   const createSettlementString = useCallback((settlement: Settlement) => {
     const {
@@ -26,7 +28,9 @@ export const BranchesList = React.memo(() => {
       : `${SettlementTypeDescription} ${Description}, ${RegionsDescription}, ${AreaDescription}`;
   }, []);
 
-  const handlerOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlerOnChange = useCallback((
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setSettlementRef("");
     setQuery(event.target.value);
     const selectedSettlement = settlements.find((settlement) => {
@@ -37,34 +41,43 @@ export const BranchesList = React.memo(() => {
       setQuery(createSettlementString(selectedSettlement));
       setSettlementRef(selectedSettlement.Ref);
     }
-  };
+  },[settlements]);
 
   useEffect(() => {
-    if (query.length > 2) {
-      getSettlements(query)
-        .then((response) => {
+    async function fetchSettlements() {
+      if (query.length > 2) {
+        try {
+          const response = await getSettlements(query);
           setSettlements(response.data);
-        })
-        .catch((error) => console.log(error));
+        } catch (error) {
+          setIsError(true);
+        }
+      }
     }
+    fetchSettlements();
   }, [query]);
 
   useEffect(() => {
-    if (settlementRef) {
-      setIsLoading(true);
-      getWarehouses(settlementRef)
-        .then((response) => {
+    async function fetchWarehouses() {
+      if (settlementRef) {
+        try {
+          setIsLoading(true);
+          const response = await getWarehouses(settlementRef);
           const branches = response.data.filter(
             (el: { CategoryOfWarehouse: string }) =>
               el.CategoryOfWarehouse === "Branch"
           );
-
           setBranches(branches);
-        })
-        .catch((error) => console.log(error))
-        .finally(() => setIsLoading(false));
+        } catch (error) {
+          setIsError(true);
+        } finally {
+          setIsLoading(false);
+        }
+      }
     }
+    fetchWarehouses();
   }, [settlementRef]);
+  
 
   return (
     <section className="branches-list">
@@ -91,8 +104,12 @@ export const BranchesList = React.memo(() => {
       {isLoading && <Loader />}
 
       {branches.length === 0 && settlementRef && !isLoading && (
-        <p className="message">
-          В обраному населенному пункті відсутні відділення Нової Пошти
+        <p className={classNames('message', { 'message--error': isError })}>
+          {!isError ? (
+            'В обраному населенному пункті відсутні відділення Нової Пошти'
+          ) : (
+            'Помилка завантаження даних з сервера'
+          )}
         </p>
       )}
     </section>

@@ -5,7 +5,9 @@ import './BranchesListForm.css';
 
 type BranchesListFormProps = {
   query: string,
-  handlerOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
+  handlerOnChange: (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void,
   settlements: Settlement[],
   createSettlementString: (settlement: Settlement) => string,
 }
@@ -18,7 +20,10 @@ export const BranchesListForm: FC<BranchesListFormProps> = React.memo(({
 }) => {
   return (
     <div className="branches-list-form">
-        <label htmlFor="settlements" className="branches-list-form__label">
+        <label 
+          htmlFor="settlements" 
+          className="branches-list-form__label"
+        >
           Оберіть населений пункт:
         </label>
         <input
@@ -29,7 +34,10 @@ export const BranchesListForm: FC<BranchesListFormProps> = React.memo(({
           onChange={handlerOnChange}
           placeholder="Ведіть назву населеного пункту"
         />
-        <datalist id="settlements" className="branches-list-form__datalist">
+        <datalist 
+          id="settlements" 
+          className="branches-list-form__datalist"
+        >
           {settlements &&
             settlements.map((settlement) => (
               <option

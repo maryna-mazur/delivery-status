@@ -51,6 +51,9 @@
   font-size: 14px;
 }
 
+.message--error {
+  color: rgba(255, 0, 0, 0.763);
+}
 
 @media (max-width: 767px) {
   .branches-list {
