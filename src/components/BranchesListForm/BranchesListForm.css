@@ -1,0 +1,23 @@
+.branches-list-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.branches-list-form__input {
+  min-width: 260px;
+  width: 400px;
+}
+
+@media (max-width: 767px) {
+  .branches-list-form__input {
+    min-width: 200px;
+    max-width: 60%;
+    font-size: 12px;
+  }
+
+  .branches-list-form__label {
+    font-size: 15px;
+  }
+}

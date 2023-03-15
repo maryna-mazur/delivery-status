@@ -10,19 +10,6 @@
   margin: 0;
 }
 
-.branches-list-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.branches-list-form__input {
-  text-align: center;
-  min-width: 260px;
-  width: 500px;
-}
-
 .branches-list-title {
   text-align: start;
   margin-left: 50px;
@@ -69,16 +56,7 @@
   .branches-list {
     gap: 10px;
   }
-  .branches-list-form__input {
-    min-width: 200px;
-    max-width: 60%;
-    font-size: 12px;
-  }
-
-  .branches-list-form__label {
-    font-size: 15px;
-  }
-
+  
   .branches-list-title {
     font-size: 14px;
     text-align: center;
